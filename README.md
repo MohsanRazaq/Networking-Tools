@@ -1,6 +1,6 @@
 # 📡 Network Security Tools
-Custom Python scripts developed to automate network reconnaissance and auditing tasks on **Parrot OS**.
 
+Automated network reconnaissance and scanning suite developed for efficient vulnerability assessment and asset discovery.
 ### 🛠️ Featured Tools
 - **Port Scanners:** Custom scripts to identify open services.
 - **Packet Sniffers:** Tools to analyze local traffic headers.
