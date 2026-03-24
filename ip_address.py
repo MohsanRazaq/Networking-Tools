@@ -5,4 +5,4 @@ network=ipaddress.ip_network(ip)
 print(f'The network is : {network}\n')
 
 for ip in network:
-    print(f'Target ip is : {ip}')  
+    print(f'Target ip is : {ip}')
