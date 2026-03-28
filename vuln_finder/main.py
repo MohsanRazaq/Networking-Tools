@@ -12,7 +12,7 @@ def load_patterns():
     patterns = []
     with open(file, 'r') as f:
         for line in f:
-            line = line.strip()
+            line = line.strip() 
             if line:
                 patterns.append(line.lower())  
     return patterns
@@ -55,11 +55,11 @@ def vuln_check(headers, patterns):
 
 # ------------------ main ------------------
 def menu():
-    ports = [21, 22, 80, 443, 110]
+    ports = [21, 22,23, 80, 443, 110]
 
     patterns = load_patterns() 
 
-    for sub in range(1, 254): 
+    for sub in range(1, 20): 
         ip = "192.168.100." + str(sub)
 
         for port in ports:
