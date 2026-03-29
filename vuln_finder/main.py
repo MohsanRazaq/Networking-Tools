@@ -47,7 +47,7 @@ def get_banner(ip, port):
 def vuln_check(headers, patterns):
     if not headers:
         return
-
+ 
     for pattern in patterns:
         if pattern in headers.lower():
             print(f"[+] Match Found --> {pattern}")
