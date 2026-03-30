@@ -11,7 +11,7 @@ if not os.path.exists(file):
 def load_patterns():
     patterns = []
     with open(file, 'r') as f:
-        for line in f:
+        for line in f:  
             line = line.strip() 
             if line:
                 patterns.append(line.lower())  
