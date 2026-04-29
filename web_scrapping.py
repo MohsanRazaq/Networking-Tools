@@ -5,5 +5,5 @@ def parse_robots_txt( url):
         for line in robots_txt_lines:
             if 'Allow' in line:
                 print(line)
-url='https://studytoolspro.online'
+url='https://daraz.pk'
 parse_robots_txt(url)
