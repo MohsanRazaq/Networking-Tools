@@ -1,17 +1,17 @@
 # GitHub Popular Python Repositories Fetcher
 
-Description
+## Description
 - A small Python script that queries the GitHub Search API for the most-starred Python repositories and prints the top results.
 
-Requirements
+## Requirements
 - Python 3.8+
 - `requests` library
 
-Installation
+## Installation
 - Create and activate a venv (optional): `python -m venv .venv && source .venv/bin/activate`
 - Install dependencies: `pip install requests`
 
-Usage
+## Usage
 - Save the example script as `github_popular.py` and run: `python github_popular.py`
 
 ## Example Output Screenshot
@@ -45,16 +45,16 @@ if __name__ == "__main__":
 	fetch_top_python_repos(top_n=5)
 ```
 
-Notes & tips
+## Notes & tips
 - The original snippet had an f-string quoting issue; the example above fixes that and adds basic error handling via `response.raise_for_status()`.
 - GitHub imposes rate limits on unauthenticated requests (usually 60 requests/hour). Use a personal access token to increase limits by setting an `Authorization` header or passing `token` to `fetch_top_python_repos`.
 - You can customize the search query via the `q` parameter (e.g., add `topic:data-science` or `created:>2024-01-01`).
 - Consider saving results to JSON if you need further processing.
 
-Improvements
+## Improvements
 - Add CLI flags (argparse) to configure `q`, `top_n`, and token.
 - Add retries/backoff for transient network errors (e.g., `tenacity` or custom logic).
 
-License
+## License
 - No license specified — use as you wish.
  
