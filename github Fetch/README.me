@@ -1,0 +1,57 @@
+# GitHub Popular Python Repositories Fetcher
+
+Description
+- A small Python script that queries the GitHub Search API for the most-starred Python repositories and prints the top results.
+
+Requirements
+- Python 3.8+
+- `requests` library
+
+Installation
+- Create and activate a venv (optional): `python -m venv .venv && source .venv/bin/activate`
+- Install dependencies: `pip install requests`
+
+Usage
+- Save the example script as `github_popular.py` and run: `python github_popular.py`
+
+Example (safe, corrected script)
+```
+import requests
+
+def fetch_top_python_repos(top_n=5, token=None):
+	headers = {"Accept": "application/vnd.github.v3+json"}
+	if token:
+		headers["Authorization"] = f"token {token}"
+
+	response = requests.get(
+		"https://api.github.com/search/repositories",
+		params={"q": "language:python", "sort": "stars", "order": "desc"},
+		headers=headers,
+		timeout=10,
+	)
+	response.raise_for_status()
+	json_response = response.json()
+	popular_repos = json_response.get("items", [])
+	for repo in popular_repos[:top_n]:
+		print(f"Name: {repo.get('name')}")
+		print(f"Description: {repo.get('description')}")
+		print(f"Stars: {repo.get('stargazers_count')}\n")
+
+if __name__ == "__main__":
+	# Optionally set GITHUB_TOKEN in your environment and pass it here
+	fetch_top_python_repos(top_n=5)
+```
+
+Notes & tips
+- The original snippet had an f-string quoting issue; the example above fixes that and adds basic error handling via `response.raise_for_status()`.
+- GitHub imposes rate limits on unauthenticated requests (usually 60 requests/hour). Use a personal access token to increase limits by setting an `Authorization` header or passing `token` to `fetch_top_python_repos`.
+- You can customize the search query via the `q` parameter (e.g., add `topic:data-science` or `created:>2024-01-01`).
+- Consider saving results to JSON if you need further processing.
+
+Improvements
+- Add CLI flags (argparse) to configure `q`, `top_n`, and token.
+- Add retries/backoff for transient network errors (e.g., `tenacity` or custom logic).
+
+License
+- No license specified — use as you wish.
+ 
